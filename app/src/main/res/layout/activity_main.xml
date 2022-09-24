@@ -43,6 +43,7 @@
         android:src="@drawable/ic_baseline_add_circle_24"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:onClick="onAddBtnClicked"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
@@ -82,6 +83,7 @@
             android:layout_marginRight="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onDeleteBtnClicked"
             app:layout_constraintBottom_toBottomOf="@+id/editTextTaskId"
             app:layout_constraintEnd_toStartOf="@+id/clearBtn" />
 
@@ -94,6 +96,7 @@
             android:id="@+id/clearBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onDoneBtnClicked"
             app:layout_constraintBottom_toBottomOf="@+id/editTextTaskId"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

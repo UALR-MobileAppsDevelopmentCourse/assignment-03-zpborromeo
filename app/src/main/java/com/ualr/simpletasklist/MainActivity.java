@@ -6,12 +6,15 @@ import android.os.Bundle;
 
 import com.ualr.simpletasklist.databinding.ActivityMainBinding;
 
+import com.ualr.simpletasklist.model.TaskList;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
     // TODO 05. Add a TaskList member to the MainActivity. Initialize the new member.
+    TaskList mainTaskList = new TaskList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO 06.01. Create a new method called onAddBtnClicked.
 
+    public void onAddBtnClicked(){
+        mainTaskList.add(binding.editTextTextPersonName.getText().toString());
+    }
     // TODO 06.05. Invoke TaskList class' add method to ask the TaskList to
     //  add a new Task with the description provided through the text field.
 
@@ -46,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO 07.01. Create a new method called onDeleteBtnClicked.
 
+    public void onDeleteBtnClicked(){
+        mainTaskList.delete(Integer.parseInt(binding.editTextTaskId.getText().toString()));
+    }
     // TODO 07.04. Invoke TaskList class' delete method to ask the TaskList to
     //  delete a Task given the id provided through the text field on the bottom.
 
@@ -57,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO 08.01. Create a new method called onDoneBtnClicked
 
+    public void onDoneBtnClicked(){
+        mainTaskList.getTasklist().get(Integer.parseInt(binding.editTextTaskId.getText().toString())).setStatus(true);
+    }
     // TODO 08.04. Invoke TaskList class' markDone method to ask the TaskList to
     //  mark a Task given the id provided through the text field on the bottom.
 
