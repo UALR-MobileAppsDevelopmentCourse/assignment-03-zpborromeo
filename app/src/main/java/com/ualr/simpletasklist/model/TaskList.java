@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 public class TaskList {
 
+    //DONE - TEST
     // TODO 03. Define TaskList's attributes. The class will have just one attribute to store all
     //  the tasks created by the user.
 
@@ -13,41 +14,45 @@ public class TaskList {
     // TIP. We need a data structure able to dynamically grow and shrink. That's why we'll use a HashMap.
     // where keys will be integer values and the mapped values will be a task object
 
+    //DONE - TEST
     // TODO 04. Define the class constructor and the corresponding getters and setters.
 
     //default constructor
-    public TaskList(){
+    public TaskList() {
 
     }
 
-    public void setTasklist(HashMap<Integer, Task> tasklist){
+    public void setTasklist(HashMap<Integer, Task> tasklist) {
         _tasklist = tasklist;
     }
 
-    public HashMap<Integer, Task> getTasklist(){
+    public HashMap<Integer, Task> getTasklist() {
         return _tasklist;
     }
+
+    //DONE - TEST
     // TODO 06.03. Define a new method called "add" that, given a task description, will create a
     //  new task and add it to the task list.
 
-    public void add(String description){
+    public void add(String description) {
         Task temp = new Task(description, false);
         _tasklist.put((_tasklist.size() + 1), temp); //I'm not sure how to index the tasks
     }
 
+    //DONE - TEST
     // TODO 06.04. Define a new "toString" method that provides a formatted string with all the tasks in the task list.
     // Format: 1 line per task. Each line should start with the id number of the task, then a dash, and the task description right after that.
     // If the task is marked as done, "Done" should be included at the end of the line
 
-    public String toString(){
+    public String toString() {
         String temp = "";
         String allTasks = "";
 
-        for (int i = 1; i <= _tasklist.size(); i++){
+        for (int i = 1; i <= _tasklist.size(); i++) {
             temp = i + "-" + (_tasklist.get(i).getTaskDescription()) + "-";
-            if (_tasklist.get(i).getTaskStatus() == true){
+            if (_tasklist.get(i).getTaskStatus()) {
                 temp = temp + "Done";
-            }else{
+            } else {
                 temp = temp + "Not Done";
             }
             allTasks = allTasks + temp + "\n";
@@ -58,17 +63,19 @@ public class TaskList {
         return allTasks;
     }
 
+    //DONE - TEST
     // TODO 07.03. Define a new method called "delete" that, given a task id, will delete the
     //  corresponding task from the task list.
 
-    public void delete(int taskID){
+    public void delete(int taskID) {
         _tasklist.remove(taskID);
     }
 
+    //DONE - TEST
     // TODO 08.03. Define a new method called "markDone" that, given a task id, will mark the
     //  corresponding task as done.
 
-    public void markDone(int taskID){
+    public void markDone(int taskID) {
         _tasklist.get(taskID).setStatus(true);
     }
 
