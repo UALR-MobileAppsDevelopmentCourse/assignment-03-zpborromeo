@@ -48,7 +48,7 @@ public class TaskList {
         String temp = "";
         String allTasks = "";
 
-        for (int i = 1; i <= _tasklist.size(); i++) {
+        for (int i : _tasklist.keySet()) {
             temp = i + "-" + (_tasklist.get(i).getTaskDescription()) + "-";
             if (_tasklist.get(i).getTaskStatus()) {
                 temp = temp + "Done";
@@ -57,7 +57,6 @@ public class TaskList {
             }
             allTasks = allTasks + temp + "\n";
             temp = "";
-
         }
 
         return allTasks;
@@ -68,7 +67,14 @@ public class TaskList {
     //  corresponding task from the task list.
 
     public void delete(int taskID) {
-        _tasklist.remove(taskID);
+        //Error handle ID outside the size of _tasklist
+        if (taskID >= _tasklist.size()) {
+            throw new IndexOutOfBoundsException("Error - No Task with Given ID");
+        } else if (_tasklist.get(taskID) == null) {
+            throw new IndexOutOfBoundsException("Error - No Task with Given ID");
+        } else {
+            _tasklist.remove(taskID);
+        }
     }
 
     //DONE - TEST
@@ -76,7 +82,14 @@ public class TaskList {
     //  corresponding task as done.
 
     public void markDone(int taskID) {
-        _tasklist.get(taskID).setStatus(true);
+        //Error handle ID outside the size of _tasklist
+        if (taskID >= _tasklist.size()) {
+            throw new IndexOutOfBoundsException("Error - No Task with Given ID");
+        } else if (_tasklist.get(taskID) == null) {
+            throw new IndexOutOfBoundsException("Error - No Task with Given ID");
+        } else {
+            _tasklist.get(taskID).setStatus(true);
+        }
     }
 
 }

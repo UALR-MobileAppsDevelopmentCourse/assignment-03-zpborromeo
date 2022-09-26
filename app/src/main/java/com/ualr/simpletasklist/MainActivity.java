@@ -5,8 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.ualr.simpletasklist.databinding.ActivityMainBinding;
-
 import com.ualr.simpletasklist.model.TaskList;
+
+import android.view.View;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -48,11 +49,10 @@ public class MainActivity extends AppCompatActivity {
     // TODO 06.06. Use TaskList class' toString method to get a string with the formatted task list
     //  and display it on screen in the TextView with the id "textView"
 
-    public void onAddBtnClicked() {
+    public void onAddBtnClicked(View view) {
         mainTaskList.add(binding.editTextTextPersonName.getText().toString());
 
-        String temp = mainTaskList.toString();
-        binding.taskList.setText(temp);
+        binding.taskList.setText(mainTaskList.toString());
     }
 
     //DONE - TEST
@@ -66,11 +66,9 @@ public class MainActivity extends AppCompatActivity {
     // TODO 07.05. Use TaskList class' toString method to get a string with the formatted task list
     //  and display it on screen in the TextView with the id "textView"
 
-    public void onDeleteBtnClicked() {
+    public void onDeleteBtnClicked(View view) {
         mainTaskList.delete(Integer.parseInt(binding.editTextTaskId.getText().toString()));
-
-        String temp = mainTaskList.toString();
-        binding.taskList.setText(temp);
+        binding.taskList.setText(mainTaskList.toString());
     }
 
     //DONE - TEST
@@ -84,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     // TODO 08.05. Use TaskList class' toString method to get a string with the formatted task list
     //  and display it on screen in the TextView with the id "textView"
 
-    public void onDoneBtnClicked() {
+    public void onDoneBtnClicked(View view) {
         mainTaskList.getTasklist().get(Integer.parseInt(binding.editTextTaskId.getText().toString())).setStatus(true);
 
         String temp = mainTaskList.toString();
