@@ -68,13 +68,15 @@ public class TaskList {
 
     public void delete(int taskID) {
         //Error handle ID outside the size of _tasklist
-        if (taskID >= _tasklist.size()) {
-            throw new IndexOutOfBoundsException("Error - No Task with Given ID");
-        } else if (_tasklist.get(taskID) == null) {
-            throw new IndexOutOfBoundsException("Error - No Task with Given ID");
-        } else {
-            _tasklist.remove(taskID);
-        }
+//        if (taskID >= _tasklist.size()) {
+//            throw new IndexOutOfBoundsException("Error - No Task with Given ID");
+//        } else if (_tasklist.get(taskID) == null) {
+//            throw new IndexOutOfBoundsException("Error - No Task with Given ID");
+//        } else {
+//            _tasklist.remove(taskID);
+//        }
+
+        _tasklist.remove(taskID);
     }
 
     //DONE - TEST
@@ -83,13 +85,15 @@ public class TaskList {
 
     public void markDone(int taskID) {
         //Error handle ID outside the size of _tasklist
-        if (taskID >= _tasklist.size()) {
-            throw new IndexOutOfBoundsException("Error - No Task with Given ID");
-        } else if (_tasklist.get(taskID) == null) {
-            throw new IndexOutOfBoundsException("Error - No Task with Given ID");
-        } else {
-            _tasklist.get(taskID).setStatus(true);
-        }
+//        if (taskID >= _tasklist.size()) {
+//            throw new IndexOutOfBoundsException("Error - No Task with Given ID");
+//        } else if (_tasklist.get(taskID) == null) {
+//            throw new IndexOutOfBoundsException("Error - No Task with Given ID");
+//        } else {
+//            _tasklist.get(taskID).setStatus(true);
+//        }
+
+        _tasklist.get(taskID).setStatus(true);
     }
 
 }
